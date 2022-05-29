@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AircraftMovement : MonoBehaviour
 {
+    public static AircraftMovement instance;
     public FixedJoystick joystick;
     private Rigidbody rb;
     public float forwardSpeed = 0;
@@ -15,6 +16,13 @@ public class AircraftMovement : MonoBehaviour
     public float maxVertiRotation = 0.06f;
     public float Hori, Verti;
 
+    private void Awake() //Singleton
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
