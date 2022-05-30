@@ -6,13 +6,14 @@ using TMPro;
 public class FieldControl : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI warningText;
-    void Update()
+    void LateUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(transform.position);
         RaycastHit hit;
         if (ray.origin.x < 550 || ray.origin.x > 800 || ray.origin.y>-40 ||  -300 >ray.origin.y ) //control different position and show some warning message
         {
             InvokeRepeating("WarningTxtActive", 0, 1f);
+            ScoreAndCountdown.instance.ScoreSubstract(0.1f);
         }
         else
         {

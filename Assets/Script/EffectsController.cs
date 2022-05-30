@@ -8,6 +8,7 @@ public class EffectsController : MonoBehaviour
 
    [SerializeField] ParticleSystem[] explosions;
    [SerializeField] ParticleSystem[] NozzleEffects;
+   [SerializeField] ParticleSystem CheckPoint;
 
     private void Awake() //Singleton
     {
@@ -37,6 +38,11 @@ public class EffectsController : MonoBehaviour
         {
             item.Stop();
         }
+    }
+
+    public void CheckPointHit()
+    {
+        CheckPoint.Play();
     }
 
 }

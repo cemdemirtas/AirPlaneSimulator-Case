@@ -23,8 +23,8 @@ public class Landing : MonoBehaviour
 
     public void CallLanding()
     {
-        airCraft.DOPath(LandingPoint, 4, pt, pm);
-        airCraft.DORotate(new Vector3(0,0,0),4);
+        airCraft.DOPath(LandingPoint, 15, pt, pm);
+        airCraft.DORotate(new Vector3(0,0,0),15);
         AircraftMovement.instance.forwardSpeed = 0f; // when we landing speed set 0
     }
 }

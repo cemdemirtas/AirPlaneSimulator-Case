@@ -14,8 +14,9 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.gameObject.tag == "AirCraft")
         {
-            ScoreAndCountdown.instance.ScoreAdd(10); // Use singleton to reach score's from other script.
+            ScoreAndCountdown.instance.ScoreAdd(500); // Use singleton to reach score's from other script.
             this.gameObject.SetActive(false);
+            EffectsController.instance.CheckPointHit();
         }
     }
 
