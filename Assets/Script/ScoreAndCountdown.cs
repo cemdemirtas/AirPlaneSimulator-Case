@@ -2,41 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class ScoreAndCountdown : MonoBehaviour
+public class Score : MonoBehaviour
 {
-    public static ScoreAndCountdown instance;
+    public static Score instance;
     int score;
-    float Countdown = 150;
-    public TextMeshProUGUI scoretxt, countdowntxt;
+    public TextMeshProUGUI scoretxt;
 
     private void Awake() //Singleton
     {
-        if (instance == null)
+        if (instance==null)
         {
             instance = this;
         }
     }
     private void Update()
     {
-        Countdown -= Time.deltaTime;
-        countdowntxt.text = "TIME : " + Mathf.Round(Countdown);
 
-        if (Countdown < 0)
-        {
-            Debug.Log("Game Over");
-        }
-        if (Countdown<=0)
-        {
-            Countdown = 0;
-        }
     }
     public int ScoreAdd(int scr) //Increase Score by reference other script
     {
         score += scr;
         ControlScore();
         return score;
-    }
-
+    } 
+    
     public int ScoreSubstract(int scr) //Decrease Score by reference other script
     {
         score -= scr;
@@ -46,10 +35,6 @@ public class ScoreAndCountdown : MonoBehaviour
 
     private void ControlScore() //Text write
     {
-        scoretxt.text = "Score : " + score;
-    }
-    void CountDown()
-    {
-
+        scoretxt.text ="Score : " + score;
     }
 }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CheckPointController : MonoBehaviour
 {
- [SerializeField] Transform[] CheckPoints;
+    [SerializeField] Transform[] CheckPoints;
 
     private void Update()
     {
-       
-            if (transform.GetChild(CheckPoints.Length-1).gameObject.active==false) //when we setactive false last checkpoints.
-            {
+
+        if (transform.GetChild(CheckPoints.Length - 1).gameObject.active == false) //when we setactive false last checkpoints.
+        {
             Debug.Log("okey");
-            }
-        
+            Landing.instance.CallLanding();
+
+        }
+
     }
 }
