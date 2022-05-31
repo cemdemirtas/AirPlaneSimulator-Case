@@ -5,9 +5,10 @@ using TMPro;
 public class ScoreAndCountdown : MonoBehaviour
 {
     public static ScoreAndCountdown instance;
-    float score;
+    float score=100;
     float Countdown = 150;
-    public TextMeshProUGUI scoretxt, countdowntxt;
+    public TextMeshProUGUI scoretxt, countdowntxt,losetxt;
+    public Transform airplane;
 
     private void Awake() //Singleton
     {
@@ -23,7 +24,10 @@ public class ScoreAndCountdown : MonoBehaviour
 
         if (Countdown < 0)
         {
-            Debug.Log("Game Over");//
+            losetxt.gameObject.SetActive(true);
+            airplane.GetComponent<SphereCollider>().isTrigger = false;
+            airplane.GetComponent<Rigidbody>().isKinematic = true;
+            airplane.GetComponent<AircraftMovement>().enabled = false; //Deactive movememnt of AirCraft
         }
         if (Countdown<=0)
         {
@@ -47,9 +51,13 @@ public class ScoreAndCountdown : MonoBehaviour
     private void ControlScore() //Text write
     {
         scoretxt.text = "Score : " + (((int)score));
+        if (score<=0)
+        {
+            losetxt.gameObject.SetActive(true);
+            airplane.GetComponent<SphereCollider>().isTrigger = false;
+            airplane.GetComponent<Rigidbody>().isKinematic = true;
+            airplane.GetComponent<AircraftMovement>().enabled = false; //Deactive movememnt of AirCraft
+        }
     }
-    void CountDown()
-    {
 
-    }
 }

@@ -14,10 +14,17 @@ public class SpeedControl : MonoBehaviour
 
     private void Update()
     {
-        //I prefer slider instead of gas or break pedal.
+        //If fit for you, i would like using slider instead of gas or break pedal.
 
         speed = speedSlider.value;
         AircraftMovement.instance.forwardSpeed = speed;
+        if (speedSlider.value>1)
+        {
+            transform.GetComponent<Rigidbody>().isKinematic = false;
+
+            //transform.GetComponent<SphereCollider>().isTrigger = true; // when we start the game, aircraft should on the takeOff Map.
+
+        }
     }
 
 
