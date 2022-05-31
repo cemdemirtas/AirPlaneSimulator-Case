@@ -28,6 +28,7 @@ public class AircraftMovement : MonoBehaviour
 
     private void Start()
     {
+
         rb = GetComponent<Rigidbody>();
 
     }
