@@ -8,6 +8,7 @@ public class SpeedControl : MonoBehaviour
     public Slider speedSlider;
     [SerializeField] float speed = 0;
     [SerializeField] TextMeshProUGUI Speedtxt;
+    [SerializeField] Image SpeedProgress ;
     private void Start()
     {
         speedSlider.value = 0;
@@ -27,7 +28,9 @@ public class SpeedControl : MonoBehaviour
 
         }
         Speedtxt.text = "Speed: "+ Mathf.Round(AircraftMovement.instance.forwardSpeed*40).ToString(); // reach speed value using by singleton
+        SpeedProgress.fillAmount = (AircraftMovement.instance.forwardSpeed * 40) / 800;
     }
+
 
 
 }
