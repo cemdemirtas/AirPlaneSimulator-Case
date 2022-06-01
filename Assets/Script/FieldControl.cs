@@ -21,10 +21,12 @@ public class FieldControl : MonoBehaviour
             warningText.gameObject.SetActive(false);
 
         }
-
-
     }
-
+    private void Update()
+    {
+        //clamp aircraft movement
+       transform.position = new Vector3( Mathf.Clamp(transform.position.x,400, 1000), Mathf.Clamp(transform.position.y, -4000, -100),transform.position.z);
+    }
     void WarningTxtActive()
     {
         warningText.gameObject.SetActive(true);
