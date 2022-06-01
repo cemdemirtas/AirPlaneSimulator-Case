@@ -24,7 +24,8 @@ public class ScoreAndCountdown : MonoBehaviour
 
         if (Countdown < 0)
         {
-            losetxt.gameObject.SetActive(true);
+            GameManager.Instance.gamestate = GameManager.GameState.GameOver; //game over state
+
             airplane.GetComponent<SphereCollider>().isTrigger = false;
             airplane.GetComponent<Rigidbody>().isKinematic = true;
             airplane.GetComponent<AircraftMovement>().enabled = false; //Deactive movememnt of AirCraft
@@ -53,7 +54,7 @@ public class ScoreAndCountdown : MonoBehaviour
         scoretxt.text = "Score : " + (((int)score));
         if (score<=0)
         {
-            losetxt.gameObject.SetActive(true);
+            GameManager.Instance.gamestate = GameManager.GameState.GameOver; //game over state
             airplane.GetComponent<SphereCollider>().isTrigger = false;
             airplane.GetComponent<Rigidbody>().isKinematic = true;
             airplane.GetComponent<AircraftMovement>().enabled = false; //Deactive movememnt of AirCraft

@@ -23,15 +23,24 @@ public class Landing : MonoBehaviour
 
     public void CallLanding()
     {
-        airCraft.DOPath(LandingPoint, 15, pt, pm);
+        airCraft.DOPath(LandingPoint, 5, pt, pm);
         AircraftMovement.instance.forwardSpeed = 0f; // when we landing speed set 0
-        succestxt.gameObject.SetActive(true);
+        //succestxt.gameObject.SetActive(true);
         InvokeRepeating("SuccessEffect", 1f, 1f); // call releated effect when we finish the checkpoints.
+
     }
 
     void SuccessEffect()
     {
         EffectsController.instance.CheckPointHit(); // Conffetti effect
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Finish")
+        {
+            GameManager.Instance.gamestate = GameManager.GameState.Next; //Next Level State
+
+        }
     }
 }

@@ -16,8 +16,8 @@ public class Explosion : MonoBehaviour
             InvokeRepeating("CallExpolisonFunction", 0, 1);
             transform.GetChild(4).GetComponent<MeshRenderer>().material.color = Color.grey; //turn over color to grey when hit terrain.
             EffectsController.instance.StopNozzleEffect();
-            losetxt.gameObject.SetActive(true);
-            //GameManager.Instance.gamestate = GameManager.GameState.GameOver; //When the Game Over.
+            //losetxt.gameObject.SetActive(true);
+            GameManager.Instance.gamestate = GameManager.GameState.GameOver; //When the Game Over.
 
         }
     }

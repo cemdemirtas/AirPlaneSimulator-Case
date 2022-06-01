@@ -14,6 +14,7 @@ public class CheckPointController : MonoBehaviour
             Debug.Log("okey");
             Landing.instance.CallLanding();
 
+
         }
         // We don't hit last check point go landing
         if (Aircraft.transform.position.z+10f>transform.GetChild(CheckPoints.Length - 1).gameObject.transform.position.z)
@@ -22,4 +23,5 @@ public class CheckPointController : MonoBehaviour
         }
 
     }
+
 }

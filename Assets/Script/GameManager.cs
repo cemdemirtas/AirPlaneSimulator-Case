@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-
     public GameObject StartP, InGameP, NextP, GameOverP;
     public float countdown = 2.0f;
     [SerializeField] private int asynSceneIndex = 1;
-    public Vector3 SpawnPos = new Vector3(680,-165,2254);
     public enum GameState // we arrange state and panels
     {
         Start,
@@ -128,5 +126,4 @@ public class GameManager : Singleton<GameManager>
         }
         gamestate = GameState.Start;
     }
-
 }

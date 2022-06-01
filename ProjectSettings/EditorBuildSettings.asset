@@ -7,17 +7,23 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scene/MainMenu.unity
-    guid: f0ba8a9d91cc09c46bd9ac1f16d6d938
+    guid: 08392fce34390fe40ad5f3f361d741e8
   - enabled: 1
     path: Assets/Scene/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scene/SampleScene 1.unity
-    guid: 864df7404ae105344b95ea5a08078fbf
+    guid: 6f14795c11efb1449ae708841fa726f1
   - enabled: 1
     path: Assets/Scene/SampleScene 2.unity
-    guid: 48dedbbd8d8aaf6488e1e721f4345817
+    guid: 23f8d18e8cdbab84491f552624906d17
   - enabled: 1
     path: Assets/Scene/SampleScene 3.unity
-    guid: 2b3ff8fb78518134e9fc3ecbe106b073
+    guid: 2023e4993dfc5a04691e11bcd9b932ad
+  - enabled: 1
+    path: Assets/Scene/SampleScene 4.unity
+    guid: 99198b0aac6236649a425ca1cffd4815
+  - enabled: 1
+    path: Assets/Scene/SampleScene 5.unity
+    guid: 4da43c35a8d4c464e8e2879cade4389b
   m_configObjects: {}
