@@ -97,11 +97,16 @@ public class GameManager : Singleton<GameManager>
     {
         countdown -= Time.deltaTime;
         if (countdown < 0)
+        { 
             PanelController(Panels.GameOverp);
+            countdown = 2.5f;
+
+        }
 
     }
     public void RestartButton()
     {
+
         SceneManager.UnloadSceneAsync(asynSceneIndex);
         //SceneManager.LoadSceneAsync(asynSceneIndex, LoadSceneMode.Additive);
         gamestate = GameState.Start;
