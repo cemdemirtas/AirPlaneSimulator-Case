@@ -12,8 +12,10 @@ public class AircraftMovement : MonoBehaviour
     private float forwardSpeed = 0;
     private float forwardSpeedMultiplier = 100;
     private float speedMultiplier = 1000;
-    private float horizontalSpeed, verticalSpeed = 4;
-    private float smoothness, rotationSmoothnees = 5;
+    private float horizontalSpeed = 4;
+    private float verticalSpeed = 4;
+    private float smoothness = 0.5f;
+    private float rotationSmoothnees = 5;
     private float maxHoriRotation = 0.6f;
     private float maxVertiRotation = 0.06f;
     private float Hori, Verti; 
@@ -22,14 +24,14 @@ public class AircraftMovement : MonoBehaviour
     public float ForwardSpeed { get => forwardSpeed; set => forwardSpeed = value; }
     public float ForwardSpeedMultiplier { get => forwardSpeedMultiplier; set => forwardSpeedMultiplier = value; }
     public float SpeedMultiplier { get => speedMultiplier; set => speedMultiplier = value; }
-    public float HorizontalSpeed { get => HorizontalSpeed1; set => HorizontalSpeed1 = value; }
-    public float HorizontalSpeed1 { get => horizontalSpeed; set => horizontalSpeed = value; }
-    public float Smoothness { get => Smoothness1; set => Smoothness1 = value; }
-    public float Smoothness1 { get => smoothness; set => smoothness = value; }
     public float MaxHoriRotation { get => maxHoriRotation; set => maxHoriRotation = value; }
     public float MaxVertiRotation { get => maxVertiRotation; set => maxVertiRotation = value; }
     public float Hori1 { get => Hori2; set => Hori2 = value; }
     public float Hori2 { get => Hori; set => Hori = value; }
+    public float Smoothness { get => smoothness; set => smoothness = value; }
+    public float HorizontalSpeed { get => horizontalSpeed; set => horizontalSpeed = value; }
+    public float VerticalSpeed { get => verticalSpeed; set => verticalSpeed = value; }
+    public float RotationSmoothnees { get => rotationSmoothnees; set => rotationSmoothnees = value; }
 
     private void Awake() //Singleton
     {
@@ -81,7 +83,7 @@ public class AircraftMovement : MonoBehaviour
         float verticalRotation = -Verti * MaxVertiRotation;
 
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(-verticalRotation, Hori1 * 0.1f, -horizontalRotation, transform.rotation.w), Time.deltaTime * rotationSmoothnees);
+        transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(-verticalRotation, Hori1 * 0.1f, -horizontalRotation, transform.rotation.w), Time.deltaTime * RotationSmoothnees);
 
     }
 
@@ -90,7 +92,7 @@ public class AircraftMovement : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, ForwardSpeed * ForwardSpeedMultiplier * Time.deltaTime);
 
         float xVelocity = Hori1 * SpeedMultiplier * HorizontalSpeed * Time.deltaTime;
-        float yVelocity = -Verti * SpeedMultiplier * verticalSpeed * Time.deltaTime;
+        float yVelocity = -Verti * SpeedMultiplier * VerticalSpeed * Time.deltaTime;
 
 
         rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(xVelocity, yVelocity, rb.velocity.z), Time.deltaTime * Smoothness);
