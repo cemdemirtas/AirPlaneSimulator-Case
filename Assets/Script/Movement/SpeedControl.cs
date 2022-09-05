@@ -9,18 +9,21 @@ public class SpeedControl : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] TextMeshProUGUI Speedtxt;
     [SerializeField] Image SpeedProgress ;
+
+    public float Speed { get => speed; set => speed = value; }
+
     private void Start()
     {
         speedSlider.value = 0;
-        speed = 0;
+        Speed = 0;
     }
 
     private void Update()
     {
         //If fit for you, i would like using slider instead of gas or break pedal.
 
-        AircraftMovement.instance.forwardSpeed = speed;
-        speed = speedSlider.value;
+        AircraftMovement.instance.ForwardSpeed = Speed;
+        Speed = speedSlider.value;
 
         if (speedSlider.value>1)
         {
@@ -29,8 +32,8 @@ public class SpeedControl : MonoBehaviour
             //transform.GetComponent<SphereCollider>().isTrigger = true; // when we start the game, aircraft should on the takeOff Map.
 
         }
-        Speedtxt.text = "Speed: "+ Mathf.Round(AircraftMovement.instance.forwardSpeed*40).ToString(); // reach speed value using by singleton
-        SpeedProgress.fillAmount = (AircraftMovement.instance.forwardSpeed *40) / 800;
+        Speedtxt.text = "Speed: "+ Mathf.Round(AircraftMovement.instance.ForwardSpeed*40).ToString(); // reach speed value using by singleton
+        SpeedProgress.fillAmount = (AircraftMovement.instance.ForwardSpeed *40) / 800;
     }
 
 

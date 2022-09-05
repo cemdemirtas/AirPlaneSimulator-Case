@@ -11,7 +11,7 @@ public class ProgressBarControl : MonoBehaviour
     private void Update()
     {
         float GetYPos = AircraftMovement.instance.transform.position.y; // reach aircraft y position by using singleton
-        float Value = 40 / GetYPos;
+        float Value = Mathf.Floor(40f / (GetYPos / 30.48f));
         progressBarImage.fillAmount = Mathf.Abs(Value);
         FeetTxt.text = "Feet: " + Mathf.Abs(Value*10).ToString(); // Get Feet value
     }

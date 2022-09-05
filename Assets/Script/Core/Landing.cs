@@ -24,7 +24,7 @@ public class Landing : MonoBehaviour
     public void CallLanding()
     {
         airCraft.DOPath(LandingPoint, 5, pt, pm);
-        AircraftMovement.instance.forwardSpeed = 0f; // when we landing speed set 0
+        AircraftMovement.instance.ForwardSpeed = 0f; // when we landing speed set 0
         //succestxt.gameObject.SetActive(true);
         InvokeRepeating("SuccessEffect", 1f, 1f); // call releated effect when we finish the checkpoints.
 
